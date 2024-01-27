@@ -1,20 +1,33 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { ContentListComponent } from "./content-list/content-list.component";
+import { CommonModule } from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
+
+interface Content {
+  id: number;
+  imgURL?:string;
+  title: string;
+  description: string;
+  creator: string;
+  type: string;
+  tags: string[];
+}
 
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss',
-   imports: [RouterOutlet, ContentListComponent]
+  selector: 'app-content-list',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './content-list.component.html',
+  styleUrl: './content-list.component.scss'
 })
-export class AppComponent {
+export class ContentListComponent implements OnInit {
+  
+  DisplayContentInformation(contentItem: Content) {
+    console.log(`ID: ${contentItem.id} and Title: ${contentItem.title}`);
+    }
+  @Input () contentItems: Content[] = [];
 
-  title = 'Rob_Abdulazeez_MyFashion';
-
-  contentItems =[
-{
+  ngOnInit(): void {
+    this.contentItems =[
+      {
         id: 1,
         imgURL:'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSmOZeTawY4IY_vpZzTYjudrBcj4Gg6_nvfTwqpuMbTBpXc6dmFUtRWfcTS-mDcWz6BU0FblUPdcttQ30QIQGbL97bKA8VA8nmMc-GANpNr&usqp=CAc',
         title: 'Dresses',
@@ -68,5 +81,8 @@ export class AppComponent {
         type: 'Fashion',
         tags: ['ladies','Men','Kids','Gents']
       }
-  ];
+      
+    ];
+  }
+ 
 }
