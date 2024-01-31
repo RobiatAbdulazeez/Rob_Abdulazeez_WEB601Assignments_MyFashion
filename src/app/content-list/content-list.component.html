@@ -1,13 +1,3 @@
-
-<div *ngFor="let contentItem of contentItems; let isFirst = first" class="content-card" (click)="DisplayContentInformation(contentItem)" [class.first-item]="isFirst">
-    <img [src]="contentItem.imgURL"  *ngIf="contentItem.imgURL" alt="{{ contentItem.title }}" class="content-card-image">
-    <!-- only display image if the url is provided -->
-    <div *ngIf="contentItem.imgURL">
-    <h2>{{ contentItem.title }}</h2>
-    <p><strong>Description:</strong> {{ contentItem.description }}</p>
-    <p><strong>Creator:</strong> {{ contentItem.creator }}</p>
-    <p *ngIf="contentItem.type"><strong>Type: </strong>{{ contentItem.type }}</p>
-    <p *ngIf="contentItem.tags && contentItem.tags.length > 0"><strong>Tags:</strong> {{ contentItem.tags.join(', ') }}</p>
-  </div>
-</div>
+<app-content-card *ngFor="let contentItem of contentItems; let isFirst = first" class="content-card" (click)="DisplayContentInformation(contentItem)" [class.first-item]="isFirst" [contentItem]="contentItem">
+</app-content-card>
   
