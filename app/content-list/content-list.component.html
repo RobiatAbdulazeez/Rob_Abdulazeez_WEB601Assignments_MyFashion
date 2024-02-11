@@ -1,0 +1,27 @@
+<!-- Search Input and Button -->
+<input type="text" [(ngModel)]="searchTitle" placeholder="Enter title of item">
+<button (click)="checkContentExists()"> Check Existence</button>
+
+
+
+<!-- Display search result message -->
+<p [ngStyle]="{'color': contentExists ? 'green' : 'red'}">{{ message }}</p>
+
+
+
+<!-- List for 'Fashion' type -->
+<h2>Fashion</h2>
+<app-content-card *ngFor="let contentItem of contentItems | filterContent:'Fashion'" [contentItem]="contentItem"></app-content-card>
+
+<!-- List for 'Mansion' type -->
+<h2>Mansion</h2>
+<app-content-card *ngFor="let contentItem of contentItems | filterContent:'Mansion'" [contentItem]="contentItem"></app-content-card>
+
+<!-- List for 'Food' type -->
+<h2>Food</h2>
+<app-content-card *ngFor="let contentItem of contentItems | filterContent:'Food'" [contentItem]="contentItem"></app-content-card>
+
+<!-- List without a given type -->
+<!-- <app-content-card *ngFor="let contentItem of contentItems | filterContent" [contentItem]="contentItem"></app-content-card> -->
+
+
