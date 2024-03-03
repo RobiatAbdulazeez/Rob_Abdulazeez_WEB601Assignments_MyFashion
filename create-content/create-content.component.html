@@ -1,0 +1,31 @@
+<div>
+    <label>ID:</label>
+    <input [(ngModel)]="content.id" type="number" required>
+  </div><br>
+  <div>
+    <label>Title:</label>
+    <input [(ngModel)]="content.title" type="text" required>
+  </div><br>
+  <div>
+    <label>Description:</label>
+    <input [(ngModel)]="content.description" type="text" required>
+  </div><br>
+  <div>
+    <label>Creator:</label>
+    <input [(ngModel)]="content.creator" type="text" required>
+  </div><br>
+  <div>
+    <label>Image URL:</label>
+    <input [(ngModel)]="content.imgUrl" type="text">
+  </div><br>
+  <div>
+    <label>Type:</label>
+    <input [(ngModel)]="content.type" type="text">
+  </div><br>
+  <div>
+    <label>Tags:</label>
+    <input [(ngModel)]="content.tags" type="text">
+  </div><br>
+  <button (click)="onClick()">Add Content</button><br><br>
+  <p *ngIf="errorMessage" style="color: red; font-weight: bold;">{{errorMessage}}</p>
+  
