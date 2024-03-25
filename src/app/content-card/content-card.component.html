@@ -1,0 +1,27 @@
+<div class="content-card" [ngClass]="{
+    'card-selected': contentItem.isSelected,
+     'fashion': contentItem.type === 'Fashion',
+     'mansion': contentItem.type === 'Mansion',
+     'food': contentItem.type === 'Food',
+     'unspecified': !contentItem.type
+   }">
+   <!-- Display default image when the imgURL is not set  -->
+   <img *ngIf="contentItem.imgURL; else defaultImage" [src]="contentItem.imgURL" alt="{{ contentItem.title }}" class="content-card-image">
+     <ng-template #defaultImage>
+         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVH_txWk12Si3avfhcvSCX0laYkInn02akag&usqp=CAU" alt="Default Image">
+     </ng-template>
+ 
+         <div>
+           <h2>{{ contentItem.title | uppercase}}</h2>
+           <p><strong>Description:</strong> {{ contentItem.description }}</p>
+           <p><strong>Creator:</strong> {{ contentItem.creator }}</p>
+           <p *ngIf="contentItem.type" appHoverAffect><strong>Type: </strong>{{ contentItem.type }}</p>
+           
+           <div *ngIf="contentItem.tags && contentItem.tags.length > 0">
+             <strong>Tags:</strong>
+             <span *ngFor="let tag of contentItem.tags" appHoverAffect="bold" class="tag" >{{ tag }}</span>
+           </div>
+           
+       </div>
+   </div>
+   

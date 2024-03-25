@@ -1,0 +1,32 @@
+
+
+<main class="main">
+  <div class="content">
+
+    
+<input type="number" [(ngModel)]="inputId" placeholder="Enter content ID">
+<button (click)="loadContentById()">Load Content</button>
+
+        
+<app-content-card *ngIf="selectedItem" [contentItem]="selectedItem"></app-content-card>
+<app-message></app-message>
+
+<app-content-list></app-content-list>
+
+
+    
+  </div>
+</main>
+
+
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+<router-outlet />
