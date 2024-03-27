@@ -10,7 +10,7 @@
         
 <app-content-card *ngIf="selectedItem" [contentItem]="selectedItem"></app-content-card>
 <app-message></app-message>
-
+<app-modify-content (contentUpdated)="refreshContentList()"></app-modify-content>
 <app-content-list></app-content-list>
 
 
