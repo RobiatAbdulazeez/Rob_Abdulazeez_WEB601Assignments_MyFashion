@@ -1,0 +1,13 @@
+
+<div>
+    <input [(ngModel)]="content.id" placeholder="ID (for update)" *ngIf="showIdInput">
+    <input [(ngModel)]="content.title" placeholder="Title">
+    <input [(ngModel)]="content.description" placeholder="Description">
+    <input [(ngModel)]="content.creator" placeholder="Creator">
+    <input [(ngModel)]="content.imgURL" placeholder="Image URL">
+    <input [(ngModel)]="content.type" placeholder="Type">
+    <input [(ngModel)]="content.tags" placeholder="Tags (comma-separated)">
+    <!-- Button text changes based on whether updating or adding -->
+    <button (click)="addOrUpdateContent()">{{buttonText}}</button>
+</div>
+
