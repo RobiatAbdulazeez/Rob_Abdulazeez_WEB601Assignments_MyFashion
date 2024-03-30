@@ -34,4 +34,5 @@ export class ContentListComponent implements OnInit {
       this.contentItems = items;
     });
   }
+  
 }
