@@ -21,7 +21,7 @@ export class ModifyContentComponentComponent {
 
   addOrUpdateContent() {
     if (this.content.id !== null) {
-        // Assuming updateContent method exists and works similarly
+        
         this.fashionService.updateContent(this.content).subscribe(() => {
             this.contentUpdated.emit(true);
             this.messageService.sendMessage('Content updated successfully'); // Example usage of MessageService
