@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 import { Content } from './helper-files/content-interface';
 import { ContentCardComponent } from "./content-card/content-card.component";
 import { MessageComponent } from "./message/message.component";
+import { ModifyContentComponentComponent } from './modify-content-component/modify-content-component.component';
 
 
 @Component({
@@ -20,22 +21,31 @@ import { MessageComponent } from "./message/message.component";
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
-    imports: [RouterOutlet, ContentListComponent, FilterContentPipe, FormsModule, CommonModule, ContentCardComponent, MessageComponent,HttpClientModule]
+    imports: [RouterOutlet, ContentListComponent, FilterContentPipe, FormsModule, CommonModule, ContentCardComponent, MessageComponent,HttpClientModule,ModifyContentComponentComponent]
 })
 export class AppComponent implements OnInit {
-  selectedItem = null;
+  selectedItem: Content | null = null;
   inputId: number | null = null; // Holds the user input
+  contentItems: Content[] = []; // To hold the list of content items
+
 
    // Inject both FashionService and MessageService
   constructor(private fashionService: FashionService,private messageService: MessageService) {}
 
   ngOnInit() {
-    const yourChosenId = 2;
-    this.fashionService.getContentItemById(yourChosenId).subscribe(item => {
-      this.selectedItem = item;
+    this.loadAllContent(); // Load all content on init
+  }
+  loadAllContent() {
+    this.fashionService.getContent().subscribe({
+      next: (items) => {
+        this.contentItems = items; // Update list of content items here
+      },
+      error: (err) => {
+        console.error("Failed to fetch content items", err);
+        this.messageService.sendMessage("Failed to load content items.");
+      }
     });
   }
-
   loadContentById() {
     if (this.inputId === null || this.inputId < 0) {
       this.messageService.sendMessage("Invalid ID entered.");
@@ -55,5 +65,11 @@ export class AppComponent implements OnInit {
         this.messageService.sendMessage("An error occurred while retrieving the content.");
       }
     });
+  }
+
+  handleContentUpdated(event: boolean) {
+    if (event) {
+      this.loadAllContent(); // Refresh the content list when content is added/updated
+    }
   }
 }

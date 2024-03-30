@@ -28,4 +28,11 @@ export class FashionService {
   getContentItemById(id: number): Observable<Content> {
     return this.http.get<Content>(`${this.apiUrl}/${id}`);
   }
+
+// Add this method to handle updating content
+updateContent(content: Content): Observable<Content> {
+  return this.http.put<Content>(`${this.apiUrl}/${content.id}`, content, { headers: { 'Content-Type': 'application/json' }
+ });
+}
+
 }

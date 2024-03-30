@@ -26,12 +26,11 @@ import { Content } from '../helper-files/content-interface';
 })
 
 export class ContentListComponent implements OnInit {
-  contentItems: Content[] = [];
-
+  @Input() contentItems: Content[] = [];
   constructor(private fashionService: FashionService) {}
 
   ngOnInit() {
-    this.fashionService.getContentItems().subscribe(items => {
+    this.fashionService.getContent().subscribe(items => {
       this.contentItems = items;
     });
   }
