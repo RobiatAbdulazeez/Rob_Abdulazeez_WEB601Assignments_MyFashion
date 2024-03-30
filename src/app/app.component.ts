@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
 
 
    // Inject both FashionService and MessageService
-  constructor(private fashionService: FashionService,private messageService: MessageService) {}
+constructor(private fashionService: FashionService,private messageService: MessageService) {}
 
   ngOnInit() {
     this.loadAllContent(); // Load all content on init
