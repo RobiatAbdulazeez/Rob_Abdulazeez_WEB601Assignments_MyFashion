@@ -9,17 +9,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './message.component.scss'
 })
 export class MessageComponent {
-  messages: string[] = [];
-
-  constructor(private messageService: MessageService) {}
-  
-  ngOnInit() {
-    this.messageService.getMessage().subscribe(message => {
-      if (message) {
-        this.messages.push(message);
-      } else {
-        this.messages = [];
-      }
-    });
-  }
+  constructor(public messageService: MessageService) {}
 }

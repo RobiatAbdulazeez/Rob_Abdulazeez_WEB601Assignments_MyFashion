@@ -17,7 +17,7 @@ export class InMemoryDataService implements InMemoryDbService{
 
 // Utility method to generate IDs
 genId(contents: Content[]): number {
-  return contents.length > 0 ? Math.max(...contents.map(content => content.id ?? 0)) + 1 : 2000;
+  return contents.length > 0 ? Math.max(...contents.map(content => content.id || 0)) + 1 : 2000;
 }
 }
 

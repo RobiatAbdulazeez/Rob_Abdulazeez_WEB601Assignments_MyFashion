@@ -1,13 +1,30 @@
-
-<div>
-    <input [(ngModel)]="content.id" placeholder="ID (for update)" *ngIf="showIdInput">
-    <input [(ngModel)]="content.title" placeholder="Title">
-    <input [(ngModel)]="content.description" placeholder="Description">
-    <input [(ngModel)]="content.creator" placeholder="Creator">
-    <input [(ngModel)]="content.imgURL" placeholder="Image URL">
-    <input [(ngModel)]="content.type" placeholder="Type">
-    <input [(ngModel)]="content.tags" placeholder="Tags (comma-separated)">
-    <!-- Button text changes based on whether updating or adding -->
-    <button (click)="addOrUpdateContent()">{{buttonText}}</button>
-</div><br>
-
+<form [formGroup]="contentForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="title">Title:</label>
+      <input id="title" type="text" formControlName="title">
+    </div><br>
+    <div>
+      <label for="description">Description:</label>
+      <input id="description" type="text" formControlName="description">
+    </div><br>
+    <div>
+      <label for="creator">Creator:</label>
+      <input id="creator" type="text" formControlName="creator">
+    </div><br>
+    <div>
+      <label for="imgURL">ImageURL:</label>
+      <input id="imgURL" type="text" formControlName="imgURL">
+    </div><br>
+    <div>
+      <label for="type">Type:</label>
+      <input id="type" type="text" formControlName="type">
+    </div><br>
+    <div>
+      <label for="tags">Tags:</label>
+      <input id="tags" type="text" formControlName="tags">
+    </div><br>
+    <!-- Add other inputs as necessary -->
+  
+    <button type="submit" [disabled]="!contentForm.valid">New Content</button><br>
+  </form><br>
+  

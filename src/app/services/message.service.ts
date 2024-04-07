@@ -6,21 +6,13 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class MessageService {
 
-  private messages = new BehaviorSubject<string>('');
+  messages: string[] = [];
 
-
-  // Method to send a message
-  sendMessage(message: string) {
-    this.messages.next(message);
+  add(message: string) {
+    this.messages.push(message);
   }
 
-  // Method to clear messages  by resetting to the initial state
-  clearMessages() {
-    this.messages.next('');
-  }
-
-  // Method to receive messages as an observable
-  getMessage(): Observable<string> {
-    return this.messages.asObservable();
+  clear() {
+    this.messages = [];
   }
 }

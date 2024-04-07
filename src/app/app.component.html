@@ -8,10 +8,10 @@
 <button (click)="loadContentById()">Load Content</button> -->
 
     
-<app-modify-content-component (contentUpdated)="handleContentUpdated($event)"></app-modify-content-component>
-<app-content-list [contentItems]="contentItems"></app-content-list>
+<!-- <app-modify-content-component (contentUpdated)="handleContentUpdated($event)"></app-modify-content-component> -->
+<app-content-list></app-content-list>
 
-<app-content-card *ngIf="selectedItem" [contentItem]="selectedItem"></app-content-card>
+<!-- <app-content-card *ngIf="selectedItem" [contentItem]="selectedItem"></app-content-card> -->
 <app-message></app-message>
 <!-- <app-modify-content-component (contentUpdated)="refreshContentList()"></app-modify-content-component> -->
 <!-- Place this where you want the modify content form to appear -->

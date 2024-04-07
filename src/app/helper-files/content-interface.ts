@@ -1,5 +1,5 @@
 export interface Content{
-    id:number| null;
+    id?:number| null;
     title:string;
     description:string;
     creator:string;

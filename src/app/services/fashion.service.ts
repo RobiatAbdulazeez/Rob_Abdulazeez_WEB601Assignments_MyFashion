@@ -17,22 +17,28 @@ export class FashionService {
 
   
   getContent() : Observable<Content[]>{
-    return this.http.get<Content[]>(this.apiUrl);
+    return this.http.get<Content[]>("api/content");
     }
   
-    // Add method for posting new content
-  addContent(content: Content): Observable<Content> {
-    return this.http.post<Content>(this.apiUrl, content, { headers: { 'Content-Type': 'application/json' } });
-  }
   // Method to fetch a single content item by its ID
-  getContentItemById(id: number): Observable<Content> {
-    return this.http.get<Content>(`${this.apiUrl}/${id}`);
+  getContentItemById(id: number): Observable<any> {
+    return of(contentItems.find(item=>item.id ===id));
   }
+  private httpOptions = {
+    headers: new HttpHeaders({ 'Content-type':
+    'application/json' })
+    };
 
+
+  // Add method for posting new content
+  addContent(content: Content): 
+  Observable<Content> {
+    return this.http.post<Content>("api/content", content,this.httpOptions);
+  }
 // Add this method to handle updating content
-updateContent(content: Content): Observable<Content> {
-  return this.http.put<Content>(`${this.apiUrl}/${content.id}`, content, { headers: { 'Content-Type': 'application/json' }
- });
+updateContent(content: Content): Observable<any> {
+  return this.http.put<Content>("api/content", content, this.httpOptions );
+ 
 }
 
 }
