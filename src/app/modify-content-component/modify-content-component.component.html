@@ -1,30 +1,36 @@
 <form [formGroup]="contentForm" (ngSubmit)="onSubmit()">
-    <div>
-      <label for="title">Title:</label>
-      <input id="title" type="text" formControlName="title">
-    </div><br>
-    <div>
-      <label for="description">Description:</label>
-      <input id="description" type="text" formControlName="description">
-    </div><br>
-    <div>
-      <label for="creator">Creator:</label>
-      <input id="creator" type="text" formControlName="creator">
-    </div><br>
-    <div>
-      <label for="imgURL">ImageURL:</label>
-      <input id="imgURL" type="text" formControlName="imgURL">
-    </div><br>
-    <div>
-      <label for="type">Type:</label>
-      <input id="type" type="text" formControlName="type">
-    </div><br>
-    <div>
-      <label for="tags">Tags:</label>
-      <input id="tags" type="text" formControlName="tags">
-    </div><br>
-    <!-- Add other inputs as necessary -->
-  
-    <button type="submit" [disabled]="!contentForm.valid">New Content</button><br>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title">
+      </mat-form-field><br>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description">
+      </mat-form-field><br>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Creator</mat-label>
+        <input matInput formControlName="creator">
+      </mat-form-field><br>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Image URL</mat-label>
+        <input matInput formControlName="imgURL">
+      </mat-form-field><br>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Type</mat-label>
+        <input matInput formControlName="type">
+      </mat-form-field><br>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Tags</mat-label>
+        <input matInput formControlName="tags">
+      </mat-form-field><br>
+    
+      <button mat-button (click)="openAddContentDialog()"><mat-icon>add</mat-icon>Add New Content</button>
+
   </form><br>
   

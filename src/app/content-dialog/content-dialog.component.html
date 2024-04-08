@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Add {{ title }}</h2>
+<mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="Title" [(ngModel)]="title"><br/>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="ID" [(ngModel)]="id" disabled>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Description" [(ngModel)]="description">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Creator" [(ngModel)]="creator">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Image URL" [(ngModel)]="imgUrl">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button (click)="addContent()">Add Content</button>
+</mat-dialog-actions>
