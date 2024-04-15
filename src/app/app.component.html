@@ -2,8 +2,13 @@
 
 <main class="main">
   <div class="content">
+    <a routerLink="content" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"> Content List
+    </a><br />
+    <a routerLink="content-list" routerLinkActive="active">Content List Complete </a><br />
 
-    
+    <a routerLink="pagewillnotbefound" routerLinkActive="active">
+    Invalid page link
+    </a><br /> <router-outlet></router-outlet>
 <!-- <input type="number" [(ngModel)]="inputId" placeholder="Enter content ID">
 <button (click)="loadContentById()">Load Content</button> -->
 

@@ -19,7 +19,8 @@ export class FashionService {
   getContent() : Observable<Content[]>{
     return this.http.get<Content[]>("api/content");
     }
-  
+    getContentItem(id: number): Observable<Content>{ console.log("Retrieving OBSERVABLE content item"); return this.http.get<Content>("api/content/" + id);
+  }
   // Method to fetch a single content item by its ID
   getContentItemById(id: number): Observable<any> {
     return of(contentItems.find(item=>item.id ===id));

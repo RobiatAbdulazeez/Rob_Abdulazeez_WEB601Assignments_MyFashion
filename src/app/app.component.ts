@@ -3,7 +3,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ContentListComponent } from "./content-list/content-list.component";
 import { FilterContentPipe } from './filter-content.pipe';
 import { FashionService } from './services/fashion.service';
@@ -14,6 +16,7 @@ import { Content } from './helper-files/content-interface';
 import { ContentCardComponent } from "./content-card/content-card.component";
 import { MessageComponent } from "./message/message.component";
 import { ModifyContentComponentComponent } from './modify-content-component/modify-content-component.component';
+import { routes } from './app.routes';
 
 
 @Component({
@@ -22,7 +25,7 @@ import { ModifyContentComponentComponent } from './modify-content-component/modi
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
     imports: [RouterOutlet,
-       ContentListComponent,
+       ContentListComponent,RouterModule,
         FilterContentPipe, 
         FormsModule, 
         CommonModule, 
@@ -32,5 +35,9 @@ import { ModifyContentComponentComponent } from './modify-content-component/modi
 })
 export class AppComponent  {
   title ='Rob_Fashion';
+  constructor(private route: ActivatedRoute,private router: Router) {
+    
+  }
+  
 }
 
